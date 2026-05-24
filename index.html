@@ -6,48 +6,65 @@
   <title>Booking Service Wuling Arista Lampung</title>
   
   <link rel="manifest" href="manifest.v1.json">
-  
   <meta name="theme-color" content="#d71920">
   <link rel="apple-touch-icon" href="icon.png">
 
-    <style>
-    body, html { 
-      margin: 0; 
-      padding: 0; 
-      height: 100%; 
-      width: 100%;
-      background-color: #f8fafc; 
+  <style>
+    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #d71920; }
+    
+    /* Indikator Loading */
+    .loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+      font-family: sans-serif;
     }
+    .spinner {
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top: 4px solid #ffffff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 10px;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
     .hide-banner {
       width: 100%;
       height: 100vh;
       position: relative;
-      overflow: hidden; /* Mengunci agar tidak ada scrollbar ganda */
+      background: #f8fafc;
     }
     .hide-banner iframe {
       position: absolute;
       top: -30px; 
       left: 0;
       width: 100%;
-      height: calc(100vh + 30px); /* Iframe lebih tinggi dari layar */
+      height: calc(100vh + 30px);
       border: none;
-      overflow-y: auto; /* Mengizinkan scroll di dalam iframe */
+      z-index: 2;
     }
   </style>
-
 </head>
 <body>
 
+  <div class="loader">
+    <div class="spinner"></div>
+    <p>Loading Booking...</p>
+  </div>
+
   <div class="hide-banner">
-    <iframe src="https://script.google.com/macros/s/AKfycbwQsPc_NAorLHptiN_v7NSID0IDl6qUwpS_N0a7Ld5xFCxVRfj0c8qZ_FByB3rqibzcCg/exec"></iframe>
+    <iframe src="LINK_EXEC_ANDA"></iframe>
   </div>
 
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-          .then((reg) => console.log('PWA Terdaftar', reg.scope))
-          .catch((err) => console.log('PWA Gagal', err));
+        navigator.serviceWorker.register('./sw.js').catch(console.error);
       });
     }
   </script>
