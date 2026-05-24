@@ -1,0 +1,20 @@
+{
+  "name": "Booking Service Wuling Arista Lampung",
+  "short_name": "Booking Wuling",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#d71920",
+  "icons": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Wuling_Motors_logo.svg/512px-Wuling_Motors_logo.svg.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Wuling_Motors_logo.svg/512px-Wuling_Motors_logo.svg.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
