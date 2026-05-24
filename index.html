@@ -10,23 +10,31 @@
   <meta name="theme-color" content="#d71920">
   <link rel="apple-touch-icon" href="icon.png">
 
-  <style>
-    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #f8fafc; }
+    <style>
+    body, html { 
+      margin: 0; 
+      padding: 0; 
+      height: 100%; 
+      width: 100%;
+      background-color: #f8fafc; 
+    }
     .hide-banner {
       width: 100%;
       height: 100vh;
-      overflow: hidden;
       position: relative;
+      overflow: hidden; /* Mengunci agar tidak ada scrollbar ganda */
     }
     .hide-banner iframe {
       position: absolute;
       top: -30px; 
       left: 0;
       width: 100%;
-      height: calc(100vh + 30px);
+      height: calc(100vh + 30px); /* Iframe lebih tinggi dari layar */
       border: none;
+      overflow-y: auto; /* Mengizinkan scroll di dalam iframe */
     }
   </style>
+
 </head>
 <body>
 
