@@ -2,10 +2,15 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Booking Service Wuling Arista Lampung</title>
+  
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#d71920">
+  <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Wuling_Motors_logo.svg/512px-Wuling_Motors_logo.svg.png">
+
   <style>
-    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #f8fafc; }
     .hide-banner {
       width: 100%;
       height: 100vh;
@@ -14,7 +19,7 @@
     }
     .hide-banner iframe {
       position: absolute;
-      top: -30px; /* Angka ini akan menyembunyikan banner Google di bagian atas */
+      top: -30px; 
       left: 0;
       width: 100%;
       height: calc(100vh + 30px);
@@ -27,6 +32,16 @@
   <div class="hide-banner">
     <iframe src="https://script.google.com/macros/s/AKfycbwQsPc_NAorLHptiN_v7NSID0IDl6qUwpS_N0a7Ld5xFCxVRfj0c8qZ_FByB3rqibzcCg/exec"></iframe>
   </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then((reg) => console.log('PWA Terdaftar', reg.scope))
+          .catch((err) => console.log('PWA Gagal', err));
+      });
+    }
+  </script>
 
 </body>
 </html>
