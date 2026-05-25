@@ -10,9 +10,15 @@
   <link rel="apple-touch-icon" href="icon.png">
 
   <style>
-    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #d71920; }
+    body, html { 
+        margin: 0; 
+        padding: 0; 
+        height: 100%; 
+        width: 100%;
+        overflow: hidden; 
+        background-color: #d71920; 
+    }
     
-    /* Indikator Loading */
     .loader {
       position: absolute;
       top: 50%;
@@ -21,7 +27,9 @@
       color: white;
       text-align: center;
       font-family: sans-serif;
+      z-index: 9999;
     }
+    
     .spinner {
       border: 4px solid rgba(255, 255, 255, 0.3);
       border-top: 4px solid #ffffff;
@@ -31,14 +39,20 @@
       animation: spin 1s linear infinite;
       margin: 0 auto 10px;
     }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    
+    @keyframes spin { 
+        0% { transform: rotate(0deg); } 
+        100% { transform: rotate(360deg); } 
+    }
 
     .hide-banner {
       width: 100%;
       height: 100vh;
       position: relative;
       background: #f8fafc;
+      overflow: hidden;
     }
+    
     .hide-banner iframe {
       position: absolute;
       top: -30px; 
@@ -47,6 +61,7 @@
       height: calc(100vh + 30px);
       border: none;
       z-index: 2;
+      overflow-y: auto;
     }
   </style>
 </head>
@@ -58,17 +73,18 @@
   </div>
 
   <div class="hide-banner">
-    <iframe src="https://script.google.com/macros/s/AKfycbwQsPc_NAorLHptiN_v7NSID0IDl6qUwpS_N0a7Ld5xFCxVRfj0c8qZ_FByB3rqibzcCg/exec"></iframe>
+    <iframe src="LINK_EXEC_ANDA"></iframe>
   </div>
 
   <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      // Kita ganti nama file menjadi sw.v1.js agar browser memuat ulang dari nol
-      navigator.serviceWorker.register('./sw.v1.js').catch(console.error);
-    });
-  }
-</script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('./sw.v1.js').catch(function(err) {
+            console.log('PWA Gagal', err);
+        });
+      });
+    }
+  </script>
 
 </body>
 </html>
