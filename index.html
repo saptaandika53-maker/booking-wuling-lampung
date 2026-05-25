@@ -62,12 +62,13 @@
   </div>
 
   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').catch(console.error);
-      });
-    }
-  </script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      // Kita ganti nama file menjadi sw.v1.js agar browser memuat ulang dari nol
+      navigator.serviceWorker.register('./sw.v1.js').catch(console.error);
+    });
+  }
+</script>
 
 </body>
 </html>
